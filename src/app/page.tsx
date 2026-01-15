@@ -1,5 +1,6 @@
 import { Container, Heading, Paragraph, Highlight } from "@/components";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { HobbiesCarousel } from "@/components/HobbiesCarousel";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -121,83 +122,117 @@ export default function Home() {
       {/* Technologies Section */}
       <Container className="flex items-center justify-center px-4 py-16 lg:py-20 bg-gray-50 dark:bg-black min-h-screen">
         <ScrollReveal className="w-full max-w-6xl lg:max-w-7xl mx-auto">
-          <div className="space-y-12">
-            <Heading className="text-4xl md:text-5xl font-bold text-center">
-              <Highlight variant="primary">Technologies</Highlight> I Use
-            </Heading>
+          <div className="space-y-12 flex flex-col items-center text-center">
+            <div>
+              <Heading className="text-4xl md:text-5xl font-bold mb-4">
+                <Highlight variant="primary">Technologies</Highlight> I Use
+              </Heading>
+              <Paragraph className="text-lg leading-relaxed max-w-3xl mx-auto">
+                I'm constantly learning and expanding my skillset with modern technologies and tools. 
+                Here are the technologies I actively work with and continue to master in my development journey.
+              </Paragraph>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Frontend */}
-              <div className="p-8 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition-shadow">
-                <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">
+            <div className="w-full space-y-12">
+              {/* Frontend Technologies */}
+              <div>
+                <h3 className="text-2xl font-semibold mb-8 text-gray-900 dark:text-white">
                   <Highlight variant="primary">Frontend</Highlight>
                 </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
-                    <span className="text-2xl">⚛️</span>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">React</span>
+                <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-4">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">⚛️</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">React</span>
                   </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
-                    <span className="text-2xl">▲</span>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">Next.js</span>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">▲</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Next.js</span>
                   </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
-                    <span className="text-2xl">🎨</span>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">Tailwind CSS</span>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">🎨</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Tailwind</span>
                   </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
-                    <span className="text-2xl">📘</span>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">TypeScript</span>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">📘</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">TypeScript</span>
+                  </div>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">💛</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">JavaScript</span>
+                  </div>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">📄</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">HTML5</span>
+                  </div>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">🎯</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">CSS3</span>
                   </div>
                 </div>
               </div>
 
-              {/* Backend */}
-              <div className="p-8 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition-shadow">
-                <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">
+              {/* Backend Technologies */}
+              <div>
+                <h3 className="text-2xl font-semibold mb-8 text-gray-900 dark:text-white">
                   <Highlight variant="secondary">Backend</Highlight>
                 </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
-                    <span className="text-2xl">🟩</span>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">Node.js</span>
+                <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">🟩</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Node.js</span>
                   </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
-                    <span className="text-2xl">🦅</span>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">Express</span>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">🦅</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Express</span>
                   </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
-                    <span className="text-2xl">🍃</span>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">MongoDB</span>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">🍃</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">MongoDB</span>
                   </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
-                    <span className="text-2xl">🐘</span>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">PostgreSQL</span>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">🐘</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">PostgreSQL</span>
+                  </div>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">☕</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Java</span>
+                  </div>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">🐍</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Python</span>
                   </div>
                 </div>
               </div>
 
               {/* Tools & Others */}
-              <div className="p-8 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition-shadow md:col-span-2">
-                <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">
+              <div>
+                <h3 className="text-2xl font-semibold mb-8 text-gray-900 dark:text-white">
                   <Highlight variant="accent">Tools & Others</Highlight>
                 </h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
-                    <span className="text-2xl">🐙</span>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">Git</span>
+                <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">🐙</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Git</span>
                   </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
-                    <span className="text-2xl">📦</span>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">npm</span>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">📦</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">npm</span>
                   </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
-                    <span className="text-2xl">🧪</span>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">Testing</span>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">🧪</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Testing</span>
                   </div>
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
-                    <span className="text-2xl">☁️</span>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">Vercel</span>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">☁️</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Vercel</span>
+                  </div>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">🐧</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Linux</span>
+                  </div>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                    <span className="text-5xl">⚙️</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Redis</span>
                   </div>
                 </div>
               </div>
@@ -218,43 +253,7 @@ export default function Home() {
               Beyond coding, I'm passionate about exploring various interests that fuel my creativity and keep me energized.
             </Paragraph>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="p-8 rounded-lg bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 border border-blue-200 dark:border-blue-700 text-center hover:shadow-lg transition-shadow">
-                <div className="text-5xl mb-4">🎮</div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Gaming</h3>
-                <p className="text-gray-700 dark:text-gray-300">I enjoy various games that challenge my strategic thinking</p>
-              </div>
-
-              <div className="p-8 rounded-lg bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900 dark:to-purple-800 border border-purple-200 dark:border-purple-700 text-center hover:shadow-lg transition-shadow">
-                <div className="text-5xl mb-4">📚</div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Reading</h3>
-                <p className="text-gray-700 dark:text-gray-300">Exploring different genres from fiction to tech articles</p>
-              </div>
-
-              <div className="p-8 rounded-lg bg-gradient-to-br from-pink-50 to-pink-100 dark:from-pink-900 dark:to-pink-800 border border-pink-200 dark:border-pink-700 text-center hover:shadow-lg transition-shadow">
-                <div className="text-5xl mb-4">🎵</div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Music</h3>
-                <p className="text-gray-700 dark:text-gray-300">Listening to various genres and discovering new artists</p>
-              </div>
-
-              <div className="p-8 rounded-lg bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900 dark:to-green-800 border border-green-200 dark:border-green-700 text-center hover:shadow-lg transition-shadow">
-                <div className="text-5xl mb-4">🚴</div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Sports</h3>
-                <p className="text-gray-700 dark:text-gray-300">Staying active with cycling and other physical activities</p>
-              </div>
-
-              <div className="p-8 rounded-lg bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-yellow-900 dark:to-yellow-800 border border-yellow-200 dark:border-yellow-700 text-center hover:shadow-lg transition-shadow">
-                <div className="text-5xl mb-4">✈️</div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Traveling</h3>
-                <p className="text-gray-700 dark:text-gray-300">Exploring new places and experiencing different cultures</p>
-              </div>
-
-              <div className="p-8 rounded-lg bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900 dark:to-indigo-800 border border-indigo-200 dark:border-indigo-700 text-center hover:shadow-lg transition-shadow">
-                <div className="text-5xl mb-4">📸</div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Photography</h3>
-                <p className="text-gray-700 dark:text-gray-300">Capturing moments and expressing creativity visually</p>
-              </div>
-            </div>
+            <HobbiesCarousel />
           </div>
         </ScrollReveal>
       </Container>

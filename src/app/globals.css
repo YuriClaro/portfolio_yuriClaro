@@ -65,4 +65,37 @@ body {
     animation-delay: 0.4s;
     opacity: 0;
   }
+
+  .hover-scale-icon {
+    @apply transition-all duration-300;
+  }
+
+  .hover-scale-icon:hover {
+    @apply scale-110;
+  }
+
+  .hover-scale-icon:hover svg,
+  .hover-scale-icon:hover span {
+    animation: rotateIcon 0.3s ease-in-out forwards;
+    display: inline-block;
+  }
+}
+
+@keyframes rotateIcon {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+  to {
+    transform: rotate(5deg) scale(1.1);
+  }
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
