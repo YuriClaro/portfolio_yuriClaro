@@ -30,7 +30,7 @@ export default function RootLayout({
       >
         <div className="flex">
           <Navbar />
-          <main className="flex-1 w-full">
+          <main className="flex-1 w-full md:ml-60 lg:ml-60 xl:ml-64 transition-all duration-300">
             {children}
           </main>
         </div>

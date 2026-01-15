@@ -58,14 +58,14 @@ export const Navbar = () => {
         className={`
           ${isCollapsed ? "w-20" : "w-64 lg:w-60 xl:w-64"} h-screen flex flex-col flex-shrink-0 
           bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100
-          fixed md:relative z-40 transition-all duration-300 ease-in-out
+          fixed z-40 transition-all duration-300 ease-in-out
           border-r border-gray-200 dark:border-gray-800
           ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
         `}
       >
         <nav className="flex flex-col h-full px-4 py-6">
           {/* Header with Collapse Button */}
-          <div className="flex items-center justify-between gap-3 pb-6 flex-shrink-0">
+          <div className={`flex items-center ${isCollapsed ? "justify-center" : "justify-between"} gap-3 pb-6 flex-shrink-0`}>
             {!isCollapsed && (
               <div className="flex items-center gap-3 flex-1">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 p-0.5 flex-shrink-0">
@@ -80,7 +80,7 @@ export const Navbar = () => {
                     Yuri
                   </h1>
                   <p className="font-light text-xs text-gray-600 dark:text-gray-300 truncate">
-                    Dev
+                    Software Developer
                   </p>
                 </div>
               </div>
