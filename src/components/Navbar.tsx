@@ -9,15 +9,22 @@ import {
   IoMdMail,
   IoMdMenu,
   IoMdClose,
+  IoMdArrowBack,
+  IoMdArrowForward,
 } from "react-icons/io";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const pathname = usePathname();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const toggleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
   };
 
   const isActive = (href: string) => pathname === href;
@@ -49,31 +56,49 @@ export const Navbar = () => {
       {/* Sidebar */}
       <div
         className={`
-          w-64 lg:w-60 xl:w-64 h-screen flex flex-col flex-shrink-0 
+          ${isCollapsed ? "w-20" : "w-64 lg:w-60 xl:w-64"} h-screen flex flex-col flex-shrink-0 
           bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100
-          fixed md:relative z-40 transition-transform duration-300 ease-in-out
+          fixed md:relative z-40 transition-all duration-300 ease-in-out
           border-r border-gray-200 dark:border-gray-800
           ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
         `}
       >
-        <nav className="flex flex-col h-full px-4 lg:px-6 py-6">
-          {/* Profile Section */}
-          <div className="flex items-center gap-3 pb-6 flex-shrink-0">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 p-0.5 flex-shrink-0">
-              <div className="w-full h-full rounded-full bg-white dark:bg-gray-900 flex items-center justify-center">
-                <span className="text-lg font-bold text-blue-600 dark:text-blue-400">
-                  Y
-                </span>
+        <nav className="flex flex-col h-full px-4 py-6">
+          {/* Header with Collapse Button */}
+          <div className="flex items-center justify-between gap-3 pb-6 flex-shrink-0">
+            {!isCollapsed && (
+              <div className="flex items-center gap-3 flex-1">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 p-0.5 flex-shrink-0">
+                  <div className="w-full h-full rounded-full bg-white dark:bg-gray-900 flex items-center justify-center">
+                    <span className="text-sm font-bold text-blue-600 dark:text-blue-400">
+                      Y
+                    </span>
+                  </div>
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h1 className="font-bold text-sm text-gray-900 dark:text-white truncate">
+                    Yuri
+                  </h1>
+                  <p className="font-light text-xs text-gray-600 dark:text-gray-300 truncate">
+                    Dev
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="min-w-0 flex-1">
-              <h1 className="font-bold text-lg text-gray-900 dark:text-white truncate">
-                Yuri
-              </h1>
-              <p className="font-light text-sm text-gray-600 dark:text-gray-300 truncate">
-                Developer
-              </p>
-            </div>
+            )}
+            
+            {/* Collapse Toggle Button - Hidden on Mobile */}
+            <button
+              onClick={toggleCollapse}
+              className="hidden md:flex p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-200 flex-shrink-0"
+              aria-label="Toggle sidebar"
+            >
+              {isCollapsed ? (
+                <IoMdArrowForward size={18} className="text-gray-600 dark:text-gray-400" />
+              ) : (
+                <IoMdArrowBack size={18} className="text-gray-600 dark:text-gray-400" />
+              )}
+            </button>
+
             {/* Mobile Close Button - Only visible when menu is open */}
             {isMobileMenuOpen && (
               <div className="md:hidden flex justify-end">
@@ -99,6 +124,7 @@ export const Navbar = () => {
                   href="/"
                   className={getLinkStyles("/")}
                   onClick={() => setIsMobileMenuOpen(false)}
+                  title={isCollapsed ? "Home" : ""}
                 >
                   <IoMdHome
                     size={20}
@@ -106,7 +132,7 @@ export const Navbar = () => {
                       isActive("/") ? "text-blue-600 dark:text-blue-400" : ""
                     }`}
                   />
-                  <span>Home</span>
+                  {!isCollapsed && <span>Home</span>}
                 </Link>
               </li>
               <li>
@@ -114,6 +140,7 @@ export const Navbar = () => {
                   href="/about"
                   className={getLinkStyles("/about")}
                   onClick={() => setIsMobileMenuOpen(false)}
+                  title={isCollapsed ? "About" : ""}
                 >
                   <IoMdPerson
                     size={20}
@@ -121,7 +148,7 @@ export const Navbar = () => {
                       isActive("/about") ? "text-blue-600 dark:text-blue-400" : ""
                     }`}
                   />
-                  <span>About</span>
+                  {!isCollapsed && <span>About</span>}
                 </Link>
               </li>
               <li>
@@ -129,6 +156,7 @@ export const Navbar = () => {
                   href="/projects"
                   className={getLinkStyles("/projects")}
                   onClick={() => setIsMobileMenuOpen(false)}
+                  title={isCollapsed ? "Projects" : ""}
                 >
                   <IoMdFolder
                     size={20}
@@ -138,7 +166,7 @@ export const Navbar = () => {
                         : ""
                     }`}
                   />
-                  <span>Projects</span>
+                  {!isCollapsed && <span>Projects</span>}
                 </Link>
               </li>
               <li>
@@ -146,6 +174,7 @@ export const Navbar = () => {
                   href="/contact"
                   className={getLinkStyles("/contact")}
                   onClick={() => setIsMobileMenuOpen(false)}
+                  title={isCollapsed ? "Contact" : ""}
                 >
                   <IoMdMail
                     size={20}
@@ -155,41 +184,67 @@ export const Navbar = () => {
                         : ""
                     }`}
                   />
-                  <span>Contact</span>
+                  {!isCollapsed && <span>Contact</span>}
                 </Link>
               </li>
             </ul>
 
             {/* Social Links */}
-            <div className="pt-6">
-              <h2 className="mb-3 font-bold text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                Socials
-              </h2>
-              <ul className="flex flex-col gap-1">
-                <li>
-                  <Link
-                    href="https://linkedin.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
-                  >
-                    <FaLinkedin size={20} />
-                    <span>LinkedIn</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="https://github.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
-                  >
-                    <FaGithub size={20} />
-                    <span>GitHub</span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            {!isCollapsed && (
+              <div className="pt-6">
+                <h2 className="mb-3 font-bold text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                  Socials
+                </h2>
+                <ul className="flex flex-col gap-1">
+                  <li>
+                    <Link
+                      href="https://linkedin.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+                    >
+                      <FaLinkedin size={20} />
+                      <span>LinkedIn</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="https://github.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+                    >
+                      <FaGithub size={20} />
+                      <span>GitHub</span>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            )}
+
+            {/* Collapsed Social Icons */}
+            {isCollapsed && (
+              <div className="pt-6 flex flex-col gap-2">
+                <Link
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 flex justify-center"
+                  title="LinkedIn"
+                >
+                  <FaLinkedin size={20} />
+                </Link>
+                <Link
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 flex justify-center"
+                  title="GitHub"
+                >
+                  <FaGithub size={20} />
+                </Link>
+              </div>
+            )}
           </div>
         </nav>
       </div>

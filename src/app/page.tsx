@@ -9,8 +9,8 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 xl:gap-16 items-center justify-items-center min-h-[70vh] lg:min-h-[75vh] xl:min-h-[80vh]">
           
           {/* Hero Content - Left Side */}
-          <div className="space-y-4 lg:space-y-5 xl:space-y-6 text-center lg:text-left order-2 lg:order-1 max-w-2xl lg:max-w-none">
-            <div className="space-y-2 lg:space-y-3">
+          <div className="space-y-4 lg:space-y-5 xl:space-y-6 text-center lg:text-left order-2 lg:order-1 max-w-2xl lg:max-w-none animate-fadeInUp">
+            <div className="space-y-2 lg:space-y-3 animate-fadeInUp-delay-1">
               <Heading className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 Hi, I'm <Highlight variant="primary">Yuri</Highlight>
               </Heading>
@@ -19,13 +19,13 @@ export default function Home() {
               </Heading>
             </div>
 
-            <Paragraph className="text-base sm:text-lg md:text-xl lg:text-lg xl:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <Paragraph className="text-base sm:text-lg md:text-xl lg:text-lg xl:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-fadeInUp-delay-2">
               I'm a passionate full-stack developer building modern web applications with <Highlight>React, Next.js, TypeScript and Node</Highlight>. 
               I love creating beautiful and functional digital experiences.
             </Paragraph>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 pt-3 lg:pt-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 pt-3 lg:pt-4 justify-center lg:justify-start animate-fadeInUp-delay-3">
               <Link 
                 href="#about"
                 className="inline-flex items-center justify-center px-5 py-2.5 lg:px-6 lg:py-3 xl:px-8 xl:py-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-medium rounded-lg transition-all duration-300 hover:transform hover:scale-105 shadow-lg hover:shadow-xl text-sm lg:text-base xl:text-lg"
@@ -42,7 +42,7 @@ export default function Home() {
           </div>
 
           {/* Profile Card - Right Side */}
-          <div className="flex justify-center order-1 lg:order-2">
+          <div className="flex justify-center order-1 lg:order-2 animate-fadeInUp-delay-4">
             <div className="relative group hover:shadow-2xl hover:shadow-blue-500/[0.1] bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 w-auto h-auto rounded-xl p-4 lg:p-5 xl:p-6 transition-all duration-300">
               <div className="w-60 h-60 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-72 lg:h-72 xl:w-80 xl:h-80 relative rounded-xl overflow-hidden bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 p-1">
                 <div className="w-full h-full rounded-lg overflow-hidden bg-white dark:bg-gray-900 flex items-center justify-center">
