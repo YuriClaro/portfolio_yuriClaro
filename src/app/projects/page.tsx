@@ -37,6 +37,73 @@ const Projects = () => {
       category: "Professional Project",
       github: "https://github.com/YuriClaro/Salary-Management-System",
     },
+    {
+      title: "Automated Contract Expiration Notification System",
+      description: "Developed an automated email notification system at Embraer using Apex within Salesforce. The system automatically identifies contracts nearing expiration, selects the appropriate contacts, and sends notification emails without manual intervention, resulting in 100% time savings for the contracts team.",
+      tech: ["Apex", "Salesforce", "SOQL", "Email Automation"],
+      status: "Completed",
+      features: [
+        "Automatic identification of expiring contracts",
+        "Smart contact selection based on contract relationships",
+        "Automated email dispatch system",
+        "100% reduction in manual email sending time",
+        "Integration with Salesforce CRM data",
+        "Scheduled batch processing for notifications",
+        "Custom email templates and content generation",
+      ],
+      category: "Professional Project",
+    },
+    {
+      title: "Aircraft Equipment Intelligence System",
+      description: "Developed a comprehensive data intelligence solution at Embraer integrating Power BI, Copilot Studio, and Salesforce. The system maps each aircraft by Serial Number, analyzes installed products, and generates actionable insights for the sales team to identify upselling opportunities and help customers equip their aircraft with additional products.",
+      tech: ["Power BI", "Copilot Studio", "Salesforce", "Data Analytics", "SOQL"],
+      status: "In Progress",
+      features: [
+        "Aircraft tracking by Serial Number",
+        "Product inventory mapping per aircraft",
+        "Automated sales insights generation",
+        "Integration between Power BI and Salesforce",
+        "Copilot Studio for intelligent recommendations",
+        "Upselling opportunity identification",
+        "Customer equipment gap analysis",
+        "Real-time dashboard for sales team",
+      ],
+      category: "Professional Project",
+    },
+    {
+      title: "Ambula's Multi-Platform Application",
+      description: "Contributed as an intern at Ambula's to develop a comprehensive ambulance management system using Flutter Flow, Supabase, and Figma. Created multiple web pages for ambulance registration, real-time tracking, authentication, and user management, delivering both web and mobile versions for a complete cross-platform solution.",
+      tech: ["Flutter Flow", "Supabase", "Figma", "Flutter", "Mobile Development"],
+      status: "Completed",
+      features: [
+        "Ambulance registration system",
+        "Real-time vehicle tracking",
+        "User authentication (login and sign-up)",
+        "Web and mobile versions",
+        "Responsive UI/UX design with Figma",
+        "Backend integration with Supabase",
+        "Cross-platform compatibility",
+        "Database management for fleet operations",
+      ],
+      category: "Professional Project",
+    },
+    {
+      title: "AI Agents Ecosystem for Commercial Aviation CRM",
+      description: "Currently developing a suite of AI agents using Copilot Studio integrated with Salesforce at Embraer. The system provides intelligent assistance for Commercial Aviation CRM, supporting product governance, opportunity management, contract administration, and sales processes through multiple specialized AI agents working together.",
+      tech: ["Copilot Studio", "Salesforce", "AI Agents", "CRM", "Automation"],
+      status: "In Progress",
+      features: [
+        "Multiple specialized AI agents",
+        "Salesforce CRM integration",
+        "Product governance assistance",
+        "Opportunity management support",
+        "Contract administration automation",
+        "Sales process optimization",
+        "Intelligent decision-making support",
+        "Commercial Aviation domain expertise",
+      ],
+      category: "Professional Project",
+    },
   ];
 
   const getStatusColor = (status: string) => {
@@ -81,20 +148,20 @@ const Projects = () => {
         {/* Projects Grid */}
         <div className="space-y-8">
           {projects.map((project, index) => (
-            <div key={index} className={`bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700 animate-fadeInUp`} style={{animationDelay: `${index * 100}ms`}}>
+            <div key={index} className={`bg-black dark:bg-black rounded-lg border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 overflow-hidden animate-fadeInUp hover:shadow-lg hover:shadow-blue-500/10`} style={{animationDelay: `${index * 100}ms`}}>
               <div className="p-8">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-3 flex-wrap">
-                      <Heading as="h3" className="text-2xl font-bold">
+                      <Heading as="h3" className="text-2xl font-bold text-white">
                         {project.title}
                       </Heading>
                       <span className={`px-3 py-1 rounded-full text-sm font-medium ${getCategoryColor(project.category)}`}>
                         {project.category}
                       </span>
                     </div>
-                    <Paragraph className="text-gray-600 dark:text-gray-300 mb-4">
+                    <Paragraph className="text-gray-400 mb-4">
                       {project.description}
                     </Paragraph>
                   </div>
@@ -107,10 +174,10 @@ const Projects = () => {
 
                 {/* Features */}
                 <div className="mb-6">
-                  <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-3">Key Features:</h4>
+                  <h4 className="font-semibold text-white mb-3">Key Features:</h4>
                   <div className="grid md:grid-cols-2 gap-2">
                     {project.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center text-gray-600 dark:text-gray-300">
+                      <div key={featureIndex} className="flex items-center text-gray-400">
                         <span className="text-sm">{feature}</span>
                       </div>
                     ))}
@@ -119,12 +186,12 @@ const Projects = () => {
 
                 {/* Tech Stack */}
                 <div className="mb-6">
-                  <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-3">Tech Stack:</h4>
+                  <h4 className="font-semibold text-white mb-3">Tech Stack:</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech, techIndex) => (
                       <span 
                         key={techIndex} 
-                        className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium"
+                        className="px-3 py-1 bg-gray-900 border border-gray-700 text-gray-300 rounded-lg text-sm font-medium hover:border-blue-500 transition-colors duration-200"
                       >
                         {tech}
                       </span>
@@ -134,10 +201,10 @@ const Projects = () => {
 
                 {/* Action Buttons */}
                 {project.github && (
-                  <div className="flex gap-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                  <div className="flex gap-4 pt-4 border-t border-gray-800">
                     <a 
                       href={project.github}
-                      className="inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-900 dark:bg-gray-600 dark:hover:bg-gray-500 text-white rounded-lg transition-colors duration-200 font-medium"
+                      className="inline-flex items-center px-4 py-2 text-white rounded-lg transition-all duration-200 font-medium hover:border hover:border-white hover:bg-white hover:text-black"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -162,7 +229,7 @@ const Projects = () => {
               </div>
               <h4 className="font-semibold mb-2">Enterprise Solutions</h4>
               <p className="text-sm text-gray-600 dark:text-gray-300">
-                6 months developing Salesforce/Apex applications, automation flows, and enterprise web solutions at Embraer
+                1+ years of experience developing robust solutions using Full Stack technologies, Salesforce and AI integrations.
               </p>
             </div>
             <div className="text-center">
@@ -180,7 +247,7 @@ const Projects = () => {
               </div>
               <h4 className="font-semibold mb-2">Languages</h4>
               <p className="text-sm text-gray-600 dark:text-gray-300">
-                Fluent in English and a Native Portuguese Brasilian speaker
+                Fluent in English and a Native Portuguese Brazilian speaker
               </p>
             </div>
           </div>

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from "next/image";
 import { faReact, faNode, faJava, faJs, faHtml5, faCss3Alt, faGit, faDocker, faAws, faSalesforce } from '@fortawesome/free-brands-svg-icons';
 import { faDatabase } from '@fortawesome/free-solid-svg-icons';
-import { SiNestjs, SiMongodb, SiPostgresql, SiNextdotjs, SiTailwindcss, SiTypescript } from 'react-icons/si';
+import { SiNestjs, SiMongodb, SiPostgresql, SiNextdotjs, SiTailwindcss, SiTypescript, SiJira, SiConfluence, SiSupabase } from 'react-icons/si';
 
 export default function Home() {
   return (
@@ -50,24 +50,38 @@ export default function Home() {
 
             {/* Profile Card - Right Side */}
             <div className="space-y-4 lg:space-y-5 xl:space-y-6 text-center lg:text-right order-1 lg:order-2 max-w-2xl lg:max-w-none animate-fadeInUp-delay-4">
-              <div className="relative group hover:shadow-2xl hover:shadow-blue-500/[0.1] bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 w-auto h-auto rounded-xl p-4 lg:p-5 xl:p-6 transition-all duration-300 inline-block">
-                <div className="w-60 h-60 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-72 lg:h-72 xl:w-80 xl:h-80 relative rounded-xl overflow-hidden bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 p-1">
-                  <div className="w-full h-full rounded-lg overflow-hidden bg-white dark:bg-gray-900">
-                    <Image
-                      src="/images/profile/yuri_profile.jpg"
-                      alt="Yuri - Full-stack Developer"
-                      width={320}
-                      height={320}
-                      priority
-                      className="w-full h-full object-cover"
-                    />
+              <div className="relative inline-block">
+                {/* Large background circles with white borders */}
+                <div className="absolute -inset-12 sm:-inset-16 md:-inset-20 lg:-inset-20 xl:-inset-24 rounded-full border-2 border-white dark:border-gray-700 opacity-60"></div>
+                <div className="absolute -inset-20 sm:-inset-28 md:-inset-32 lg:-inset-32 xl:-inset-40 rounded-full border-2 border-white dark:border-gray-700 opacity-50"></div>
+                <div className="absolute -inset-28 sm:-inset-40 md:-inset-48 lg:-inset-48 xl:-inset-56 rounded-full border-2 border-white dark:border-gray-700 opacity-40"></div>
+
+                {/* Profile image container */}
+                <div className="relative w-60 h-60 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-72 lg:h-72 xl:w-80 xl:h-80">
+                  {/* Main circles behind image */}
+                  <div className="absolute inset-0 w-full h-full flex items-center justify-center">
+                    <div className="absolute w-full h-full rounded-full border-2 border-blue-300 dark:border-blue-700 opacity-40"></div>
+                    <div className="absolute w-[110%] h-[110%] rounded-full border-2 border-blue-200 dark:border-blue-800 opacity-30"></div>
+                    <div className="absolute w-[120%] h-[120%] rounded-full border-2 border-blue-100 dark:border-blue-900 opacity-20"></div>
                   </div>
-                </div>
-                
-                <div>
-                  <p className="text-neutral-500 text-xs sm:text-sm lg:text-xs xl:text-sm mt-3 lg:mt-4 dark:text-neutral-300 text-center">
-                    Yuri Claro
-                  </p>
+                  
+                  {/* Profile image with fade effect and blue border */}
+                  <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-blue-600 dark:border-blue-400 p-0">
+                    <div className="w-full h-full rounded-full overflow-hidden bg-white dark:bg-gray-900">
+                      <Image
+                        src="/images/profile/yuri_profile.jpg"
+                        alt="Yuri - Full-stack Developer"
+                        width={320}
+                        height={320}
+                        priority
+                        className="w-full h-full object-cover"
+                        style={{
+                          maskImage: 'linear-gradient(to right, black 0%, black 70%, transparent 100%)',
+                          WebkitMaskImage: 'linear-gradient(to right, black 0%, black 70%, transparent 100%)',
+                        }}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -104,9 +118,9 @@ export default function Home() {
             </Paragraph>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-              <div className="p-6 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
+              <div className="p-6 rounded-lg border border-white dark:border-gray-700">
                 <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-                  <Highlight variant="secondary">Core Strengths</Highlight>
+                  <Highlight variant="primary">Core Strengths</Highlight>
                 </h3>
                 <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                   <li>✓ Full-stack Development</li>
@@ -116,9 +130,9 @@ export default function Home() {
                 </ul>
               </div>
 
-              <div className="p-6 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
+              <div className="p-6 rounded-lg border border-white dark:border-gray-700">
                 <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-                  <Highlight variant="secondary">What I Value</Highlight>
+                  <Highlight variant="primary">What I Value</Highlight>
                 </h3>
                 <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                   <li>✓ Code Quality & Clean Architecture</li>
@@ -153,33 +167,33 @@ export default function Home() {
                   <Highlight variant="primary">Frontend</Highlight>
                 </h3>
                 <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-4">
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full transition-transform">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
                     <span className="text-5xl text-[#61DAFB]"><FontAwesomeIcon icon={faReact} /></span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">React</span>
+                    <span className="text-sm font-medium text-white text-center">React</span>
                   </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full transition-transform">
-                    <span className="text-5xl text-black dark:text-white"><SiNextdotjs /></span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Next.js</span>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
+                    <span className="text-5xl text-white"><SiNextdotjs /></span>
+                    <span className="text-sm font-medium text-white text-center">Next.js</span>
                   </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full transition-transform">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
                     <span className="text-5xl text-[#06B6D4]"><SiTailwindcss /></span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Tailwind</span>
+                    <span className="text-sm font-medium text-white text-center">Tailwind</span>
                   </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full transition-transform">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
                     <span className="text-5xl text-[#3178C6]"><SiTypescript /></span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">TypeScript</span>
+                    <span className="text-sm font-medium text-white text-center">TypeScript</span>
                   </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full transition-transform">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
                     <span className="text-5xl text-[#F7DF1E]"><FontAwesomeIcon icon={faJs} /></span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">JavaScript</span>
+                    <span className="text-sm font-medium text-white text-center">JavaScript</span>
                   </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full transition-transform">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
                     <span className="text-5xl text-[#E34C26]"><FontAwesomeIcon icon={faHtml5} /></span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">HTML5</span>
+                    <span className="text-sm font-medium text-white text-center">HTML5</span>
                   </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full transition-transform">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
                     <span className="text-5xl text-[#239120]"><FontAwesomeIcon icon={faCss3Alt} /></span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">CSS3</span>
+                    <span className="text-sm font-medium text-white text-center">CSS3</span>
                   </div>
                 </div>
               </div>
@@ -190,29 +204,29 @@ export default function Home() {
                   <Highlight variant="secondary">Backend</Highlight>
                 </h3>
                 <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
                     <span className="text-5xl text-[#339933]"><FontAwesomeIcon icon={faNode} /></span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Node.js</span>
+                    <span className="text-sm font-medium text-white text-center">Node.js</span>
                   </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
                     <span className="text-5xl text-red-600"><SiNestjs /></span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Nest.js</span>
+                    <span className="text-sm font-medium text-white text-center">Nest.js</span>
                   </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
                     <span className="text-5xl text-[#13AA52]"><SiMongodb /></span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">MongoDB</span>
+                    <span className="text-sm font-medium text-white text-center">MongoDB</span>
                   </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
                     <span className="text-5xl text-[#336791]"><SiPostgresql /></span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">PostgreSQL</span>
+                    <span className="text-sm font-medium text-white text-center">PostgreSQL</span>
                   </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
                     <span className="text-5xl text-[#007396]"><FontAwesomeIcon icon={faJava} /></span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Java</span>
+                    <span className="text-sm font-medium text-white text-center">Java</span>
                   </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
                     <span className="text-5xl text-[#00A8E1]"><FontAwesomeIcon icon={faSalesforce} /></span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Apex</span>
+                    <span className="text-sm font-medium text-white text-center">Apex</span>
                   </div>
                 </div>
               </div>
@@ -223,29 +237,29 @@ export default function Home() {
                   <Highlight variant="accent">Tools & Others</Highlight>
                 </h3>
                 <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
                     <span className="text-5xl text-[#F1502F]"><FontAwesomeIcon icon={faGit} /></span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Git</span>
+                    <span className="text-sm font-medium text-white text-center">Git</span>
                   </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
                     <span className="text-5xl text-[#2496ED]"><FontAwesomeIcon icon={faDocker} /></span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Docker</span>
+                    <span className="text-sm font-medium text-white text-center">Docker</span>
                   </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
                     <span className="text-5xl text-[#FF9900]"><FontAwesomeIcon icon={faAws} /></span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">AWS</span>
+                    <span className="text-sm font-medium text-white text-center">AWS</span>
                   </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
-                    <span className="text-5xl">🧪</span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Jira</span>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
+                    <span className="text-5xl text-[#0052CC]"><SiJira /></span>
+                    <span className="text-sm font-medium text-white text-center">Jira</span>
                   </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
-                    <span className="text-5xl">📚</span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Confluence</span>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
+                    <span className="text-5xl text-[#172B4D]"><SiConfluence /></span>
+                    <span className="text-sm font-medium text-white text-center">Confluence</span>
                   </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:shadow-lg h-full">
-                    <span className="text-5xl">⚙️</span>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">Supabase</span>
+                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
+                    <span className="text-5xl text-[#3ECF8E]"><SiSupabase /></span>
+                    <span className="text-sm font-medium text-white text-center">Supabase</span>
                   </div>
                 </div>
               </div>
