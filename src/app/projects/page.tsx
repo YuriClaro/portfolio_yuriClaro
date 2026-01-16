@@ -132,7 +132,7 @@ const Projects = () => {
   };
 
   return (
-    <Container className="pt-16 lg:pt-20 pb-16 lg:pb-20">
+    <Container className="pt-16 lg:pt-20 pb-16 lg:pb-20 bg-black dark:bg-black min-h-screen">
       <div className="max-w-6xl mx-auto">
         <div className="animate-fadeInUp">
           <Heading className="text-4xl md:text-5xl font-bold mb-6">

@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <Container className="flex items-center justify-center px-4 pt-2 lg:pt-0 pb-0 lg:pb-8 bg-zinc-50 dark:bg-black min-h-screen">
+      <Container className="flex items-center justify-center px-4 pt-2 lg:pt-0 pb-0 lg:pb-8 bg-black dark:bg-black min-h-screen">
         <div className="w-full max-w-6xl lg:max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 xl:gap-16 items-center justify-items-center min-h-[70vh] lg:min-h-[75vh] xl:min-h-[80vh]">
             
@@ -90,7 +90,7 @@ export default function Home() {
       </Container>
 
       {/* About Section */}
-      <Container id="about" className="flex items-center justify-center px-4 py-16 lg:py-20 bg-white dark:bg-gray-950 min-h-screen">
+      <Container id="about" className="flex items-center justify-center px-4 py-16 lg:py-20 bg-black dark:bg-black min-h-screen">
         <ScrollReveal className="w-full max-w-6xl lg:max-w-7xl mx-auto">
           <div className="space-y-8">
             <Heading className="text-4xl md:text-5xl font-bold text-center">
@@ -147,7 +147,7 @@ export default function Home() {
       </Container>
 
       {/* Technologies Section */}
-      <Container className="flex items-center justify-center px-4 py-16 lg:py-20 bg-gray-50 dark:bg-black min-h-screen">
+      <Container className="flex items-center justify-center px-4 py-16 lg:py-20 bg-black dark:bg-black min-h-screen">
         <ScrollReveal className="w-full max-w-6xl lg:max-w-7xl mx-auto">
           <div className="space-y-12 flex flex-col items-center text-center">
             <div>
@@ -269,7 +269,7 @@ export default function Home() {
       </Container>
 
       {/* Hobbies Section */}
-      <Container className="flex items-center justify-center px-4 py-16 lg:py-20 bg-white dark:bg-gray-950 min-h-screen">
+      <Container className="flex items-center justify-center px-4 py-16 lg:py-20 bg-black dark:bg-black min-h-screen">
         <ScrollReveal className="w-full max-w-6xl lg:max-w-7xl mx-auto">
           <div className="space-y-12">
             <Heading className="text-4xl md:text-5xl font-bold text-center">
