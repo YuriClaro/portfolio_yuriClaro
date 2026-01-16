@@ -2,9 +2,11 @@
 
 import { useState, useRef } from 'react';
 import { IoMdArrowForward, IoMdArrowBack } from 'react-icons/io';
+import { FaCarSide, FaMusic, FaDumbbell, FaBook, FaGamepad } from 'react-icons/fa';
+import { SiBookstack } from 'react-icons/si';
 
 interface Hobby {
-  emoji: string;
+  icon: React.ReactNode;
   title: string;
   description: string;
   gradient: string;
@@ -13,46 +15,39 @@ interface Hobby {
 
 const hobbies: Hobby[] = [
   {
-    emoji: '🎮',
-    title: 'Gaming',
-    description: 'I enjoy various games that challenge my strategic thinking',
+    icon: <FaCarSide className="text-6xl" />,
+    title: 'Cars',
+    description: 'I like to live the fast and furious, having a turbo car, and go to car meetings',
     gradient: 'from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800',
     borderColor: 'border-blue-200 dark:border-blue-700',
   },
   {
-    emoji: '📚',
-    title: 'Reading',
-    description: 'Exploring different genres from fiction to tech articles',
+    icon: <FaGamepad className="text-6xl" />,
+    title: 'Gaming',
+    description: 'Playing games since a kid, my favorites are soulslike that I never got tired of',
     gradient: 'from-purple-50 to-purple-100 dark:from-purple-900 dark:to-purple-800',
     borderColor: 'border-purple-200 dark:border-purple-700',
   },
   {
-    emoji: '🎵',
+    icon: <FaMusic className="text-6xl" />,
     title: 'Music',
-    description: 'Listening to various genres and discovering new artists',
+    description: 'Listening to music every single day, I cannot live without metal rock in my head',
     gradient: 'from-pink-50 to-pink-100 dark:from-pink-900 dark:to-pink-800',
     borderColor: 'border-pink-200 dark:border-pink-700',
   },
   {
-    emoji: '🚴',
+    icon: <FaDumbbell className="text-6xl" />,
     title: 'Sports',
-    description: 'Staying active with cycling and other physical activities',
+    description: 'Always trying to keep in a workout routine, I like to lift weights and street running',
     gradient: 'from-green-50 to-green-100 dark:from-green-900 dark:to-green-800',
     borderColor: 'border-green-200 dark:border-green-700',
   },
   {
-    emoji: '✈️',
-    title: 'Traveling',
-    description: 'Exploring new places and experiencing different cultures',
+    icon: <FaBook className="text-6xl" />,
+    title: 'Reading',
+    description: 'I like to read some dark fantasy stories and expand my knowledge through books',
     gradient: 'from-yellow-50 to-yellow-100 dark:from-yellow-900 dark:to-yellow-800',
     borderColor: 'border-yellow-200 dark:border-yellow-700',
-  },
-  {
-    emoji: '📸',
-    title: 'Photography',
-    description: 'Capturing moments and expressing creativity visually',
-    gradient: 'from-indigo-50 to-indigo-100 dark:from-indigo-900 dark:to-indigo-800',
-    borderColor: 'border-indigo-200 dark:border-indigo-700',
   },
 ];
 
@@ -91,8 +86,8 @@ export function HobbiesCarousel() {
             key={index}
             className={`flex-shrink-0 w-80 p-8 rounded-lg bg-gradient-to-br ${hobby.gradient} border ${hobby.borderColor} text-center hover:shadow-lg transition-all duration-300 min-h-72 flex flex-col justify-center`}
           >
-            <div className="text-6xl mb-6 animate-fadeInUp">
-              {hobby.emoji}
+            <div className="mb-6 animate-fadeInUp flex justify-center text-blue-600 dark:text-blue-400">
+              {hobby.icon}
             </div>
             <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white">
               {hobby.title}

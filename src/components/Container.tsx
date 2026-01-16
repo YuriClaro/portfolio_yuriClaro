@@ -3,11 +3,12 @@ import React from "react";
 interface ContainerProps {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }
 
-export default function Container({ children, className = "" }: ContainerProps) {
+export default function Container({ children, className = "", id }: ContainerProps) {
   return (
-    <div className={`w-full ${className}`}>
+    <div id={id} className={`w-full ${className}`}>
       {children}
     </div>
   );
