@@ -71,7 +71,7 @@ export const Navbar = () => {
             {/* Social Links - Always visible on desktop */}
             <div className="hidden sm:flex items-center gap-2">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/yuriclaro/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -81,7 +81,7 @@ export const Navbar = () => {
                 <FaLinkedin size={20} />
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/YuriClaro"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -91,7 +91,7 @@ export const Navbar = () => {
                 <FaGithub size={20} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/yur1v/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"

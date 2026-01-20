@@ -4,13 +4,15 @@ const Projects = () => {
   const projects = [
     {
       title: "Ecommerce Platform for Performance Parts",
-      description: "A full-featured ecommerce platform specializing in performance car parts, built with Nest.js and Stripe integration.",
+      description: "A full-featured ecommerce platform specializing in performance car parts, built with Nest.js.",
       tech: ["Node.js", "TypeScript", "React", "AI API Integration"],
       status: "Completed",
       features: [
         "Add items to shopping cart",
-        "Secure checkout with Stripe",
+        "Catalog browsing and search",
         "Product tracking",
+        "cart management",
+        "Order processing and checkout",
       ],
       category: "Personal Project",
       github: "https://github.com/YuriClaro/eCommerce-project"

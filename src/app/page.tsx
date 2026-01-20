@@ -10,12 +10,10 @@ import { SiNestjs, SiMongodb, SiPostgresql, SiNextdotjs, SiTailwindcss, SiTypesc
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
       <Container className="flex items-center justify-center px-4 pt-2 lg:pt-0 pb-0 lg:pb-8 bg-black dark:bg-black min-h-screen">
         <div className="w-full max-w-6xl lg:max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 xl:gap-16 items-center justify-items-center min-h-[70vh] lg:min-h-[75vh] xl:min-h-[80vh]">
             
-            {/* Hero Content - Left Side */}
             <div className="space-y-4 lg:space-y-5 xl:space-y-6 text-center lg:text-left order-2 lg:order-1 max-w-2xl lg:max-w-none animate-fadeInUp">
               <div className="space-y-2 lg:space-y-3 animate-fadeInUp-delay-1">
                 <Heading className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-tight">
@@ -31,7 +29,6 @@ export default function Home() {
                 Here you can find more about me, my projects and my journey with technology.
               </Paragraph>
 
-              {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 pt-3 lg:pt-4 justify-center lg:justify-start animate-fadeInUp-delay-3">
                 <a 
                   href="#about"
@@ -48,24 +45,19 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Profile Card - Right Side */}
             <div className="space-y-4 lg:space-y-5 xl:space-y-6 text-center lg:text-right order-1 lg:order-2 max-w-2xl lg:max-w-none animate-fadeInUp-delay-4">
               <div className="relative inline-block">
-                {/* Large background circles with white borders */}
                 <div className="absolute -inset-12 sm:-inset-16 md:-inset-20 lg:-inset-20 xl:-inset-24 rounded-full border-2 border-white dark:border-gray-700 opacity-60"></div>
                 <div className="absolute -inset-20 sm:-inset-28 md:-inset-32 lg:-inset-32 xl:-inset-40 rounded-full border-2 border-white dark:border-gray-700 opacity-50"></div>
                 <div className="absolute -inset-28 sm:-inset-40 md:-inset-48 lg:-inset-48 xl:-inset-56 rounded-full border-2 border-white dark:border-gray-700 opacity-40"></div>
 
-                {/* Profile image container */}
                 <div className="relative w-60 h-60 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-72 lg:h-72 xl:w-80 xl:h-80">
-                  {/* Main circles behind image */}
                   <div className="absolute inset-0 w-full h-full flex items-center justify-center">
                     <div className="absolute w-full h-full rounded-full border-2 border-blue-300 dark:border-blue-700 opacity-40"></div>
                     <div className="absolute w-[110%] h-[110%] rounded-full border-2 border-blue-200 dark:border-blue-800 opacity-30"></div>
                     <div className="absolute w-[120%] h-[120%] rounded-full border-2 border-blue-100 dark:border-blue-900 opacity-20"></div>
                   </div>
                   
-                  {/* Profile image with fade effect and blue border */}
                   <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-blue-600 dark:border-blue-400 p-0">
                     <div className="w-full h-full rounded-full overflow-hidden bg-white dark:bg-gray-900">
                       <Image
