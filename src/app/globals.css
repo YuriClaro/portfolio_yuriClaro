@@ -6,31 +6,65 @@ html {
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --primary: #171717;
+  --primary-foreground: #fafafa;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #171717;
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
+  --accent: #f5f5f5;
+  --accent-foreground: #171717;
+  --border: #e5e5e5;
+  --ring: #0a0a0a;
+}
+
+.dark {
+  --background: #060A12;
+  --foreground: #fafafa;
+  --card: #060A12;
+  --card-foreground: #fafafa;
+  --primary: #fafafa;
+  --primary-foreground: #171717;
+  --secondary: #262626;
+  --secondary-foreground: #fafafa;
+  --muted: #262626;
+  --muted-foreground: #a3a3a3;
+  --accent: #262626;
+  --accent-foreground: #fafafa;
+  --border: #262626;
+  --ring: #d4d4d4;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1a1a1a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-/* Fade-in animation */
-@keyframes fadeInUp {
+/* Fade-up animation */
+@keyframes fade-up {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -42,55 +76,24 @@ body {
 }
 
 @layer utilities {
-  .animate-fadeInUp {
-    animation: fadeInUp 0.6s ease-out forwards;
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out forwards;
   }
 
-  .animate-fadeInUp-delay-1 {
-    animation: fadeInUp 0.6s ease-out forwards;
-    animation-delay: 0.1s;
-    opacity: 0;
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
-  .animate-fadeInUp-delay-2 {
-    animation: fadeInUp 0.6s ease-out forwards;
-    animation-delay: 0.2s;
-    opacity: 0;
-  }
-
-  .animate-fadeInUp-delay-3 {
-    animation: fadeInUp 0.6s ease-out forwards;
-    animation-delay: 0.3s;
-    opacity: 0;
-  }
-
-  .animate-fadeInUp-delay-4 {
-    animation: fadeInUp 0.6s ease-out forwards;
-    animation-delay: 0.4s;
-    opacity: 0;
-  }
-
-  .hover-scale-icon {
-    @apply transition-all duration-300;
-  }
-
-  .hover-scale-icon:hover {
-    @apply scale-110;
-  }
-
-  .hover-scale-icon:hover svg,
-  .hover-scale-icon:hover span {
-    animation: rotateIcon 0.3s ease-in-out forwards;
-    display: inline-block;
-  }
-}
-
-@keyframes rotateIcon {
-  from {
-    transform: rotate(0deg) scale(1);
-  }
-  to {
-    transform: rotate(5deg) scale(1.1);
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
 }
 

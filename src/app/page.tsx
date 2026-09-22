@@ -1,281 +1,550 @@
-import { Container, Heading, Paragraph, Highlight } from "@/components";
-import { ScrollReveal } from "@/components/ScrollReveal";
-import { HobbiesCarousel } from "@/components/HobbiesCarousel";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from "next/image";
-import { faReact, faNode, faJava, faJs, faHtml5, faCss3Alt, faGit, faDocker, faAws, faSalesforce } from '@fortawesome/free-brands-svg-icons';
-import { faDatabase } from '@fortawesome/free-solid-svg-icons';
-import { SiNestjs, SiMongodb, SiPostgresql, SiNextdotjs, SiTailwindcss, SiTypescript, SiJira, SiConfluence, SiSupabase } from 'react-icons/si';
+import {
+  ArrowDown,
+  Mail,
+  ExternalLink,
+  GraduationCap,
+  MapPin,
+} from "lucide-react";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { ScrollReveal } from "@/components/ScrollReveal";
+
+/* ───────── data ───────── */
+
+const skills = [
+  "Angular",
+  "TypeScript",
+  "JavaScript",
+  "Node.js",
+  "Express",
+  "MongoDB",
+  "React",
+  "Next.js",
+  "Python",
+  "TensorFlow",
+  "PyTorch",
+  "NLP",
+  "GenAI / Agentic AI",
+  "HuggingFace",
+  "REST APIs",
+  "Microservices",
+  "OAuth2",
+  "JWT",
+  "SSO",
+  "Docker",
+  "Kubernetes",
+  "AWS",
+  "Azure",
+  "Google Cloud",
+  "Redis",
+  "CI/CD",
+  "FHIR",
+  "HL7",
+  "HIPAA",
+  "Terraform",
+  "Git / VSTS",
+];
+
+const projects = [
+  {
+    year: "2026",
+    title: "GenAI & Agentic AI Decision Automation Platform",
+    description:
+      "Built GenAI and Agentic AI prototypes using Python, TensorFlow and PyTorch, integrated models into Node.js services to automate decision flows, reducing manual processing time 60% and increasing throughput 4x. Integrated NLP pipelines using HuggingFace for intent extraction that processed 2M+ documents monthly.",
+    tech: ["Python", "TensorFlow", "PyTorch", "HuggingFace", "Node.js", "NLP", "GenAI"],
+    link: null,
+    github: null,
+  },
+  {
+    year: "2026",
+    title: "Scalable Microservices API Platform",
+    description:
+      "Architected Node.js and Express microservices with MongoDB, supporting 50K+ users. Improved API throughput 3x, reduced median latency 45% via asynchronous programming. Deployed containerized services on AWS and Azure using Docker and Kubernetes with CI/CD pipelines.",
+    tech: ["Node.js", "Express", "MongoDB", "Docker", "Kubernetes", "AWS", "Azure"],
+    link: null,
+    github: null,
+  },
+  {
+    year: "2025",
+    title: "Avionics Data Analytics Dashboard",
+    description:
+      "Engineered REST APIs for avionics data ingestion at Embraer, scaling pipelines to 200K events/day. Built Angular real-time flight analytics dashboards supporting 5,000 concurrent users. Prototyped Agentic AI maintenance assistant reducing diagnosis time 35%.",
+    tech: ["Angular", "Node.js", "Express", "MongoDB", "Python", "Google Cloud", "Azure"],
+    link: null,
+    github: null,
+  },
+  {
+    year: "2020–2025",
+    title: "Healthcare EHR Integration Platform",
+    description:
+      "Built MEAN stack applications for healthcare platforms at Ambula, improving patient data sync throughput 3x and supporting 100K+ EHR transactions monthly. Implemented FHIR and HL7 integrations compliant with HIPAA across 20 hospitals.",
+    tech: ["Angular", "Node.js", "Express", "MongoDB", "FHIR", "HL7", "HIPAA"],
+    link: null,
+    github: null,
+  },
+  {
+    year: "2020–2025",
+    title: "Clinical NLP Data Pipeline",
+    description:
+      "Deployed NLP models for clinical note processing using Python and TensorFlow. Built pipelines that extracted structured data from 500K notes/month, improving coding accuracy 20%. Optimized MongoDB with sharding strategies to scale to 10M+ records.",
+    tech: ["Python", "TensorFlow", "NLP", "MongoDB", "Node.js"],
+    link: null,
+    github: null,
+  },
+  {
+    year: "2018–2020",
+    title: "Enterprise Client Portal System",
+    description:
+      "Developed frontend components with Angular and TypeScript at HumanIT Digital Consulting. Built Node.js REST APIs with MongoDB supporting 200K+ records. Implemented CI pipelines reducing release time from days to hours and JWT-based role access controls.",
+    tech: ["Angular", "TypeScript", "Node.js", "Express", "MongoDB", "JWT", "Git"],
+    link: null,
+    github: null,
+  },
+];
+
+const experience = [
+  {
+    period: "Jan 2026 — Present",
+    role: "Software Engineer",
+    company: "Automate Army",
+    description:
+      "Architected Node.js/Express microservices backed by MongoDB supporting 50K+ users. Built GenAI/Agentic AI prototypes with Python, TensorFlow and PyTorch. Implemented OAuth2/JWT/SSO security achieving SOC 2 alignment. Deployed on AWS/Azure with Docker/Kubernetes, reducing deployment time to under 1 hour. Led Agile teams and mentored engineers, increasing team velocity 35%.",
+    tech: [
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Angular",
+      "Python",
+      "TensorFlow",
+      "GenAI",
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "Azure",
+    ],
+  },
+  {
+    period: "Aug 2025 — Jul 2026",
+    role: "Software Engineer",
+    company: "Embraer",
+    description:
+      "Engineered REST APIs for avionics data ingestion scaling to 200K events/day. Developed Angular flight analytics dashboards supporting 5,000 concurrent users. Implemented OAuth2/JWT SSO integration reducing login friction 70%. Prototyped Agentic AI maintenance assistant reducing diagnosis time 35%. Optimized MongoDB replica sets with recovery RTO under 30 minutes.",
+    tech: [
+      "Node.js",
+      "Express",
+      "Angular",
+      "MongoDB",
+      "OAuth2",
+      "JWT",
+      "Python",
+      "NLP",
+      "Google Cloud",
+      "Azure",
+    ],
+  },
+  {
+    period: "Aug 2020 — Jul 2025",
+    role: "Software Engineer",
+    company: "Ambula",
+    description:
+      "Built MEAN stack healthcare platforms supporting 100K+ EHR transactions monthly. Implemented FHIR/HL7 integrations compliant with HIPAA across 20 hospitals, reducing integration time 45%. Built microservices handling 1M+ records at 99.9% uptime. Deployed NLP models for clinical note processing extracting structured data from 500K notes/month.",
+    tech: [
+      "Angular",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "FHIR",
+      "HL7",
+      "HIPAA",
+      "Python",
+      "TensorFlow",
+      "OAuth2",
+      "JWT",
+    ],
+  },
+  {
+    period: "Jul 2018 — Aug 2020",
+    role: "Junior Software Engineer",
+    company: "HumanIT Digital Consulting",
+    description:
+      "Developed Angular/TypeScript frontend components improving page load times 30% across client portals serving 10K+ users. Built Node.js/Express REST APIs with MongoDB supporting 200K+ records. Implemented Git workflows and CI pipelines reducing release time from days to hours. Applied async programming patterns reducing batch job completion time 70%.",
+    tech: [
+      "Angular",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "JWT",
+      "Git",
+      "CI/CD",
+    ],
+  },
+];
+
+const education = [
+  {
+    period: "2017 — 2020",
+    institution: "Anhembi Morumbi University",
+    degree: "Bachelor's Degree",
+    field: "Computer Science",
+    location: "São Paulo, Brazil",
+    description:
+      "Studied computer science fundamentals: algorithms, data structures, operating systems, databases, and software engineering. Built full-stack projects with Java, Spring Boot, React, and Next.js that grew into a career in web development.",
+  },
+];
+
+/* ───────── helpers ───────── */
+
+function SectionHeading({
+  number,
+  children,
+}: {
+  number: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="mb-12 flex items-center gap-4">
+      <h2 className="flex items-baseline gap-3 text-2xl font-bold tracking-tight sm:text-3xl">
+        <span className="font-mono text-base text-muted-foreground">
+          {number}.
+        </span>
+        {children}
+      </h2>
+      <div className="h-px flex-1 bg-border" />
+    </div>
+  );
+}
+
+function Badge({
+  children,
+  variant = "outline",
+}: {
+  children: React.ReactNode;
+  variant?: "outline" | "filled";
+}) {
+  const base =
+    "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium transition-colors font-mono";
+  const styles =
+    variant === "filled"
+      ? "border-transparent bg-secondary text-secondary-foreground"
+      : "text-foreground border-border";
+  return <div className={`${base} ${styles}`}>{children}</div>;
+}
+
+/* ───────── page ───────── */
 
 export default function Home() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <>
-      <Container className="flex items-center justify-center px-4 pt-2 lg:pt-0 pb-0 lg:pb-8 bg-black dark:bg-black min-h-screen">
-        <div className="w-full max-w-6xl lg:max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 xl:gap-16 items-center justify-items-center min-h-[70vh] lg:min-h-[75vh] xl:min-h-[80vh]">
-            
-            <div className="space-y-4 lg:space-y-5 xl:space-y-6 text-center lg:text-left order-2 lg:order-1 max-w-2xl lg:max-w-none animate-fadeInUp">
-              <div className="space-y-2 lg:space-y-3 animate-fadeInUp-delay-1">
-                <Heading className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                  Hi, I'm <Highlight variant="primary">Yuri</Highlight>
-                </Heading>
-                <Heading as="h2" className="text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl text-gray-600 dark:text-gray-300 font-normal">
-                  Full-stack Developer
-                </Heading>
-              </div>
+      {/* ─── Hero ─── */}
+      <section className="container relative flex min-h-[88vh] flex-col justify-center py-24">
+        <div className="max-w-3xl space-y-6 animate-fade-up">
+          <p className="font-mono text-sm text-muted-foreground">
+            Hi, my name is
+          </p>
+          <h1 className="text-balance text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
+            Yuri Claro.
+          </h1>
+          <h2 className="text-balance text-3xl font-bold tracking-tight text-muted-foreground sm:text-4xl md:text-5xl">
+            I build scalable enterprise systems.
+          </h2>
+          <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Senior Software Engineer with 8+ years in MEAN stack, GenAI/Agentic AI
+            and enterprise Identity/Security, Healthcare and Data Governance
+            platforms. Expertise in Node.js, Express, MongoDB, Angular, TypeScript,
+            Python and cloud deployments. Agile practitioner and collaborative
+            leader focused on delivering secure, compliant enterprise-grade solutions.
+          </p>
 
-              <Paragraph className="text-base sm:text-lg md:text-xl lg:text-lg xl:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-fadeInUp-delay-2">
-                I'm Computer Science student pationate about developing, building modern web applications with <Highlight>React, Next.js, TypeScript and Node</Highlight>. 
-                Here you can find more about me, my projects and my journey with technology.
-              </Paragraph>
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <a
+              className="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-6"
+              href="#projects"
+            >
+              View my work
+              <ArrowDown className="h-4 w-4" />
+            </a>
+            <a
+              className="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors border border-border bg-background hover:bg-accent hover:text-accent-foreground h-11 px-6"
+              href="mailto:yuri.claro.dev@gmail.com"
+            >
+              <Mail className="h-4 w-4" />
+              Get in touch
+            </a>
 
-              <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 pt-3 lg:pt-4 justify-center lg:justify-start animate-fadeInUp-delay-3">
-                <a 
-                  href="#about"
-                  className="inline-flex items-center justify-center px-5 py-2.5 lg:px-6 lg:py-3 xl:px-8 xl:py-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-medium rounded-lg transition-all duration-300 hover:transform hover:scale-105 shadow-lg hover:shadow-xl text-sm lg:text-base xl:text-lg"
-                >
-                  About Me
-                </a>
-                <a 
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-5 py-2.5 lg:px-6 lg:py-3 xl:px-8 xl:py-4 border-2 border-gray-300 dark:border-gray-600 hover:border-blue-600 dark:hover:border-blue-400 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium rounded-lg transition-all duration-300 text-sm lg:text-base xl:text-lg"
-                >
-                  Get In Touch
-                </a>
-              </div>
+            <div className="ml-2 flex items-center gap-1">
+              <a
+                href="https://www.linkedin.com/in/yuriclaro/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+                className="inline-flex items-center justify-center rounded-md transition-colors hover:bg-accent hover:text-accent-foreground h-10 w-10"
+              >
+                <FaLinkedin className="h-5 w-5" />
+              </a>
+              <a
+                href="https://github.com/YuriClaro"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+                className="inline-flex items-center justify-center rounded-md transition-colors hover:bg-accent hover:text-accent-foreground h-10 w-10"
+              >
+                <FaGithub className="h-5 w-5" />
+              </a>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="space-y-4 lg:space-y-5 xl:space-y-6 text-center lg:text-right order-1 lg:order-2 max-w-2xl lg:max-w-none animate-fadeInUp-delay-4">
-              <div className="relative inline-block">
-                <div className="absolute -inset-12 sm:-inset-16 md:-inset-20 lg:-inset-20 xl:-inset-24 rounded-full border-2 border-white dark:border-gray-700 opacity-60"></div>
-                <div className="absolute -inset-20 sm:-inset-28 md:-inset-32 lg:-inset-32 xl:-inset-40 rounded-full border-2 border-white dark:border-gray-700 opacity-50"></div>
-                <div className="absolute -inset-28 sm:-inset-40 md:-inset-48 lg:-inset-48 xl:-inset-56 rounded-full border-2 border-white dark:border-gray-700 opacity-40"></div>
+      {/* ─── About ─── */}
+      <section id="about" className="container py-24 scroll-mt-16">
+        <ScrollReveal>
+          <SectionHeading number="01">About</SectionHeading>
+        </ScrollReveal>
 
-                <div className="relative w-60 h-60 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-72 lg:h-72 xl:w-80 xl:h-80">
-                  <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-                    <div className="absolute w-full h-full rounded-full border-2 border-blue-300 dark:border-blue-700 opacity-40"></div>
-                    <div className="absolute w-[110%] h-[110%] rounded-full border-2 border-blue-200 dark:border-blue-800 opacity-30"></div>
-                    <div className="absolute w-[120%] h-[120%] rounded-full border-2 border-blue-100 dark:border-blue-900 opacity-20"></div>
-                  </div>
-                  
-                  <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-blue-600 dark:border-blue-400 p-0">
-                    <div className="w-full h-full rounded-full overflow-hidden bg-white dark:bg-gray-900">
-                      <Image
-                        src="/images/profile/yuri_profile.jpg"
-                        alt="Yuri - Full-stack Developer"
-                        width={320}
-                        height={320}
-                        priority
-                        className="w-full h-full object-cover"
-                        style={{
-                          maskImage: 'linear-gradient(to right, black 0%, black 70%, transparent 100%)',
-                          WebkitMaskImage: 'linear-gradient(to right, black 0%, black 70%, transparent 100%)',
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
+        <ScrollReveal>
+        <div className="grid gap-12 md:grid-cols-3">
+          <div className="space-y-4 text-muted-foreground md:col-span-2">
+            <p>
+              I&apos;m a senior software engineer based in{" "}
+              <strong className="text-foreground">São Paulo, Brazil</strong>.
+              With 8+ years of experience, I specialize in building enterprise-grade
+              applications using the MEAN stack, GenAI/Agentic AI, and identity/security
+              platforms. I&apos;ve delivered solutions across healthcare, avionics, and
+              data governance domains.
+            </p>
+            <p>
+              My track record includes reducing integration time by 45%, improving API
+              throughput 3x, and building secure authentication systems with OAuth2, JWT,
+              and SSO. I&apos;m proficient in cloud deployments on AWS, Azure, and Google
+              Cloud with containerization using Docker and Kubernetes.
+            </p>
+            <p>
+              I&apos;m passionate about GenAI/Agentic AI model development, NLP, and
+              data governance to deliver scalable, secure and compliant solutions. I thrive
+              as an Agile practitioner, mentoring engineers and managing cross-functional
+              stakeholder relationships.
+            </p>
+
+            <p className="pt-2 text-foreground">
+              Some of the technologies I work with:
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {skills.map((s) => (
+                <Badge key={s} variant="filled">
+                  {s}
+                </Badge>
+              ))}
+            </div>
+          </div>
+
+          {/* Portrait */}
+          <div className="relative">
+            <div className="aspect-square w-full max-w-xs overflow-hidden rounded-xl border bg-gradient-to-br from-muted to-secondary p-1">
+              <div className="relative h-full w-full overflow-hidden rounded-lg bg-card">
+                <Image
+                  src="/images/profile/yuri_profile.jpg"
+                  alt="Portrait of Yuri Claro"
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 20rem, 80vw"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
         </div>
-      </Container>
-
-      {/* About Section */}
-      <Container id="about" className="flex items-center justify-center px-4 py-16 lg:py-20 bg-black dark:bg-black min-h-screen">
-        <ScrollReveal className="w-full max-w-6xl lg:max-w-7xl mx-auto">
-          <div className="space-y-8">
-            <Heading className="text-4xl md:text-5xl font-bold text-center">
-              About <Highlight variant="primary">Me</Highlight>
-            </Heading>
-            
-            <Paragraph className="text-lg leading-relaxed text-center md:text-left">
-              I'm a dedicated developer with 1+ year of professional experience in software development. 
-              I have a solid foundation in object-oriented programming, with Java being my first programming language. 
-              Throughout my career, I've built several projects using Spring Boot, Docker, PostgreSQL, and other technologies. 
-              Currently, I work at Embraer as a Salesforce Developer, where I specialize in Apex (similar to Java) and frontend development to 
-              create solutions and optimize processes in commercial aviation.
-            </Paragraph>
-
-            <Paragraph className="text-lg leading-relaxed text-center md:text-left">
-              Currently, my main focus is web development, leveraging modern technologies such as React, Next.js, TypeScript, and Node.js 
-              to build scalable, efficient, and impactful applications.
-            </Paragraph>
-
-            <Paragraph className="text-lg leading-relaxed text-center md:text-left">
-              My journey in development has been marked by continuous learning and adaptation. Having learned to code with Java first, 
-              I can confidently say that nothing can shake me anymore! I thrive in collaborative environments, enjoy mentoring others, 
-              and constantly expand my skillset. Beyond coding, I'm driven by curiosity and a genuine desire to contribute meaningfully 
-              to projects that make a real difference.
-            </Paragraph>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-              <div className="p-6 rounded-lg border border-white dark:border-gray-700">
-                <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-                  <Highlight variant="primary">Core Strengths</Highlight>
-                </h3>
-                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                  <li>✓ Full-stack Development</li>
-                  <li>✓ Problem Solving</li>
-                  <li>✓ Team Collaboration</li>
-                  <li>✓ Continuous Learning</li>
-                </ul>
-              </div>
-
-              <div className="p-6 rounded-lg border border-white dark:border-gray-700">
-                <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-                  <Highlight variant="primary">What I Value</Highlight>
-                </h3>
-                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                  <li>✓ Code Quality & Clean Architecture</li>
-                  <li>✓ User Experience</li>
-                  <li>✓ Innovative Solutions</li>
-                  <li>✓ Continuous Improvement</li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </ScrollReveal>
-      </Container>
+      </section>
 
-      {/* Technologies Section */}
-      <Container className="flex items-center justify-center px-4 py-16 lg:py-20 bg-black dark:bg-black min-h-screen">
-        <ScrollReveal className="w-full max-w-6xl lg:max-w-7xl mx-auto">
-          <div className="space-y-12 flex flex-col items-center text-center">
-            <div>
-              <Heading className="text-4xl md:text-5xl font-bold mb-4">
-                <Highlight variant="primary">Technologies</Highlight> I Use
-              </Heading>
-              <Paragraph className="text-lg leading-relaxed max-w-3xl mx-auto">
-                I'm constantly learning and expanding my skillset with modern technologies and tools. 
-                Here are the technologies I actively work with and continue to master in my development journey.
-              </Paragraph>
-            </div>
+      {/* ─── Projects ─── */}
+      <section id="projects" className="container py-24 scroll-mt-16">
+        <ScrollReveal>
+          <SectionHeading number="02">Selected work</SectionHeading>
+        </ScrollReveal>
 
-            <div className="w-full space-y-12">
-              {/* Frontend Technologies */}
-              <div>
-                <h3 className="text-2xl font-semibold mb-8 text-gray-900 dark:text-white">
-                  <Highlight variant="primary">Frontend</Highlight>
-                </h3>
-                <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-4">
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-[#61DAFB]"><FontAwesomeIcon icon={faReact} /></span>
-                    <span className="text-sm font-medium text-white text-center">React</span>
+        <div className="grid gap-6 md:grid-cols-2">
+          {projects.map((p) => (
+            <ScrollReveal key={p.title}>
+            <div
+              className="rounded-xl border bg-card text-card-foreground shadow-sm transition-colors group flex flex-col overflow-hidden hover:border-foreground/20 hover:shadow-md"
+            >
+              <div className="flex flex-col space-y-1.5 p-6">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="space-y-1.5">
+                    <p className="font-mono text-xs text-muted-foreground">
+                      {p.year}
+                    </p>
+                    <h3 className="font-semibold tracking-tight text-xl">
+                      {p.title}
+                    </h3>
                   </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-white"><SiNextdotjs /></span>
-                    <span className="text-sm font-medium text-white text-center">Next.js</span>
-                  </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-[#06B6D4]"><SiTailwindcss /></span>
-                    <span className="text-sm font-medium text-white text-center">Tailwind</span>
-                  </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-[#3178C6]"><SiTypescript /></span>
-                    <span className="text-sm font-medium text-white text-center">TypeScript</span>
-                  </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-[#F7DF1E]"><FontAwesomeIcon icon={faJs} /></span>
-                    <span className="text-sm font-medium text-white text-center">JavaScript</span>
-                  </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-[#E34C26]"><FontAwesomeIcon icon={faHtml5} /></span>
-                    <span className="text-sm font-medium text-white text-center">HTML5</span>
-                  </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-[#239120]"><FontAwesomeIcon icon={faCss3Alt} /></span>
-                    <span className="text-sm font-medium text-white text-center">CSS3</span>
+                  <div className="flex shrink-0 items-center gap-1">
+                    {p.github && (
+                      <a
+                        href={p.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${p.title} GitHub`}
+                        className="text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        <FaGithub className="h-4 w-4" />
+                      </a>
+                    )}
+                    {p.link && (
+                      <a
+                        href={p.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${p.title} link`}
+                        className="text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
 
-              {/* Backend Technologies */}
-              <div>
-                <h3 className="text-2xl font-semibold mb-8 text-gray-900 dark:text-white">
-                  <Highlight variant="secondary">Backend</Highlight>
-                </h3>
-                <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-[#339933]"><FontAwesomeIcon icon={faNode} /></span>
-                    <span className="text-sm font-medium text-white text-center">Node.js</span>
-                  </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-red-600"><SiNestjs /></span>
-                    <span className="text-sm font-medium text-white text-center">Nest.js</span>
-                  </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-[#13AA52]"><SiMongodb /></span>
-                    <span className="text-sm font-medium text-white text-center">MongoDB</span>
-                  </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-[#336791]"><SiPostgresql /></span>
-                    <span className="text-sm font-medium text-white text-center">PostgreSQL</span>
-                  </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-[#007396]"><FontAwesomeIcon icon={faJava} /></span>
-                    <span className="text-sm font-medium text-white text-center">Java</span>
-                  </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-[#00A8E1]"><FontAwesomeIcon icon={faSalesforce} /></span>
-                    <span className="text-sm font-medium text-white text-center">Apex</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Tools & Others */}
-              <div>
-                <h3 className="text-2xl font-semibold mb-8 text-gray-900 dark:text-white">
-                  <Highlight variant="accent">Tools & Others</Highlight>
-                </h3>
-                <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-[#F1502F]"><FontAwesomeIcon icon={faGit} /></span>
-                    <span className="text-sm font-medium text-white text-center">Git</span>
-                  </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-[#2496ED]"><FontAwesomeIcon icon={faDocker} /></span>
-                    <span className="text-sm font-medium text-white text-center">Docker</span>
-                  </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-[#FF9900]"><FontAwesomeIcon icon={faAws} /></span>
-                    <span className="text-sm font-medium text-white text-center">AWS</span>
-                  </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-[#0052CC]"><SiJira /></span>
-                    <span className="text-sm font-medium text-white text-center">Jira</span>
-                  </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-[#172B4D]"><SiConfluence /></span>
-                    <span className="text-sm font-medium text-white text-center">Confluence</span>
-                  </div>
-                  <div className="hover-scale-icon flex flex-col items-center gap-3 p-6 rounded-lg bg-black dark:bg-black border border-white dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 h-full transition-all">
-                    <span className="text-5xl text-[#3ECF8E]"><SiSupabase /></span>
-                    <span className="text-sm font-medium text-white text-center">Supabase</span>
-                  </div>
+              <div className="p-6 pt-0 flex flex-1 flex-col justify-between gap-4">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {p.description}
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {p.tech.map((t) => (
+                    <Badge key={t}>{t}</Badge>
+                  ))}
                 </div>
               </div>
             </div>
-          </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── Experience ─── */}
+      <section id="experience" className="container py-24 scroll-mt-16">
+        <ScrollReveal>
+          <SectionHeading number="03">Experience</SectionHeading>
         </ScrollReveal>
-      </Container>
 
-      {/* Hobbies Section */}
-      <Container className="flex items-center justify-center px-4 py-16 lg:py-20 bg-black dark:bg-black min-h-screen">
-        <ScrollReveal className="w-full max-w-6xl lg:max-w-7xl mx-auto">
-          <div className="space-y-12">
-            <Heading className="text-4xl md:text-5xl font-bold text-center">
-              My <Highlight variant="primary">Hobbies</Highlight>
-            </Heading>
+        <ol className="relative space-y-12 border-l border-border pl-8 md:pl-12">
+          {experience.map((e) => (
+            <ScrollReveal key={`${e.company}-${e.period}`}>
+            <li className="relative">
+              <span className="absolute -left-[calc(2rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full bg-foreground md:-left-[calc(3rem+5px)]" />
+              <p className="font-mono text-xs text-muted-foreground">
+                {e.period}
+              </p>
+              <h3 className="mt-1 text-xl font-semibold">
+                {e.role}{" "}
+                <span className="text-muted-foreground">· {e.company}</span>
+              </h3>
+              <p className="mt-3 max-w-2xl text-muted-foreground leading-relaxed">
+                {e.description}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {e.tech.map((t) => (
+                  <Badge key={t} variant="filled">
+                    {t}
+                  </Badge>
+                ))}
+              </div>
+            </li>
+            </ScrollReveal>
+          ))}
+        </ol>
+      </section>
 
-            <Paragraph className="text-lg text-center leading-relaxed">
-              Beyond coding, I'm passionate about exploring various interests that fuel my creativity and keep me energized.
-            </Paragraph>
-
-            <HobbiesCarousel />
-          </div>
+      {/* ─── Education ─── */}
+      <section id="education" className="container py-24 scroll-mt-16">
+        <ScrollReveal>
+          <SectionHeading number="04">Education</SectionHeading>
         </ScrollReveal>
-      </Container>
+
+        <ol className="relative space-y-12 border-l border-border pl-8 md:pl-12">
+          {education.map((ed) => (
+            <ScrollReveal key={ed.institution}>
+            <li className="relative">
+              <span className="absolute -left-[calc(2rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full bg-foreground md:-left-[calc(3rem+5px)]" />
+              <p className="font-mono text-xs text-muted-foreground">
+                {ed.period}
+              </p>
+              <h3 className="mt-1 text-xl font-semibold">{ed.institution}</h3>
+              <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+                <span className="inline-flex items-center gap-1.5">
+                  <GraduationCap className="h-4 w-4" />
+                  {ed.degree} in {ed.field}
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <MapPin className="h-4 w-4" />
+                  {ed.location}
+                </span>
+              </div>
+              <p className="mt-3 max-w-2xl text-muted-foreground leading-relaxed">
+                {ed.description}
+              </p>
+            </li>
+            </ScrollReveal>
+          ))}
+        </ol>
+      </section>
+
+      {/* ─── Contact ─── */}
+      <section id="contact" className="container py-24 scroll-mt-16">
+        <ScrollReveal>
+          <SectionHeading number="05">Get in touch</SectionHeading>
+        </ScrollReveal>
+
+        <ScrollReveal>
+        <div className="mx-auto max-w-2xl space-y-6 text-center">
+          <h3 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
+            Let&apos;s build something amazing together.
+          </h3>
+          <p className="text-balance text-muted-foreground leading-relaxed">
+            I&apos;m always excited to discuss new opportunities, collaborate on
+            interesting projects, or simply chat about technology and
+            development. Feel free to reach out!
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <a
+              href="mailto:yuri.claro.dev@gmail.com"
+              className="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-6"
+            >
+              <Mail className="h-4 w-4" />
+              yuri.claro.dev@gmail.com
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/yuriclaro/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-md transition-colors border border-border bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin className="h-5 w-5" />
+            </a>
+            <a
+              href="https://github.com/YuriClaro"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-md transition-colors border border-border bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10"
+              aria-label="GitHub"
+            >
+              <FaGithub className="h-5 w-5" />
+            </a>
+          </div>
+        </div>
+        </ScrollReveal>
+
+        {/* Footer */}
+        <footer className="mt-24 border-t border-border pt-8 text-center font-mono text-xs text-muted-foreground">
+          Built with Next.js &amp; Tailwind · © {currentYear} Yuri Claro
+        </footer>
+      </section>
     </>
   );
 }
