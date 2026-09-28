@@ -47,149 +47,139 @@ const skills = [
 
 const projects = [
   {
-    year: "2026",
-    title: "GenAI & Agentic AI Decision Automation Platform",
+    year: "2024",
+    title: "Salary Management System",
     description:
-      "Built GenAI and Agentic AI prototypes using Python, TensorFlow and PyTorch, integrated models into Node.js services to automate decision flows, reducing manual processing time 60% and increasing throughput 4x. Integrated NLP pipelines using HuggingFace for intent extraction that processed 2M+ documents monthly.",
-    tech: ["Python", "TensorFlow", "PyTorch", "HuggingFace", "Node.js", "NLP", "GenAI"],
+      "Salary management system with a microservices architecture composed of four services orchestrated via Docker. APIs secured with Spring Security and JWT, data auditing with Hibernate Envers, and database versioning with Liquibase. Asynchronous communication via Apache Kafka for sending Excel reports to authenticated users.",
+    tech: [
+      "Java",
+      "Spring Boot",
+      "Spring Security",
+      "JWT",
+      "PostgreSQL",
+      "Apache Kafka",
+      "Docker",
+      "Hibernate Envers",
+      "Liquibase",
+      "JUnit",
+      "Swagger",
+    ],
     link: null,
-    github: null,
-  },
-  {
-    year: "2026",
-    title: "Scalable Microservices API Platform",
-    description:
-      "Architected Node.js and Express microservices with MongoDB, supporting 50K+ users. Improved API throughput 3x, reduced median latency 45% via asynchronous programming. Deployed containerized services on AWS and Azure using Docker and Kubernetes with CI/CD pipelines.",
-    tech: ["Node.js", "Express", "MongoDB", "Docker", "Kubernetes", "AWS", "Azure"],
-    link: null,
-    github: null,
-  },
-  {
-    year: "2025",
-    title: "Avionics Data Analytics Dashboard",
-    description:
-      "Engineered REST APIs for avionics data ingestion at Embraer, scaling pipelines to 200K events/day. Built Angular real-time flight analytics dashboards supporting 5,000 concurrent users. Prototyped Agentic AI maintenance assistant reducing diagnosis time 35%.",
-    tech: ["Angular", "Node.js", "Express", "MongoDB", "Python", "Google Cloud", "Azure"],
-    link: null,
-    github: null,
-  },
-  {
-    year: "2020–2025",
-    title: "Healthcare EHR Integration Platform",
-    description:
-      "Built MEAN stack applications for healthcare platforms at Ambula, improving patient data sync throughput 3x and supporting 100K+ EHR transactions monthly. Implemented FHIR and HL7 integrations compliant with HIPAA across 20 hospitals.",
-    tech: ["Angular", "Node.js", "Express", "MongoDB", "FHIR", "HL7", "HIPAA"],
-    link: null,
-    github: null,
-  },
-  {
-    year: "2020–2025",
-    title: "Clinical NLP Data Pipeline",
-    description:
-      "Deployed NLP models for clinical note processing using Python and TensorFlow. Built pipelines that extracted structured data from 500K notes/month, improving coding accuracy 20%. Optimized MongoDB with sharding strategies to scale to 10M+ records.",
-    tech: ["Python", "TensorFlow", "NLP", "MongoDB", "Node.js"],
-    link: null,
-    github: null,
-  },
-  {
-    year: "2018–2020",
-    title: "Enterprise Client Portal System",
-    description:
-      "Developed frontend components with Angular and TypeScript at HumanIT Digital Consulting. Built Node.js REST APIs with MongoDB supporting 200K+ records. Implemented CI pipelines reducing release time from days to hours and JWT-based role access controls.",
-    tech: ["Angular", "TypeScript", "Node.js", "Express", "MongoDB", "JWT", "Git"],
-    link: null,
-    github: null,
+    github: "https://github.com/YuriClaro/Salary-Management-System",
   },
 ];
 
 const experience = [
   {
-    period: "Jan 2026 — Present",
+    period: "May 2026 — Present",
     role: "Software Engineer",
     company: "Automate Army",
-    description:
-      "Architected Node.js/Express microservices backed by MongoDB supporting 50K+ users. Built GenAI/Agentic AI prototypes with Python, TensorFlow and PyTorch. Implemented OAuth2/JWT/SSO security achieving SOC 2 alignment. Deployed on AWS/Azure with Docker/Kubernetes, reducing deployment time to under 1 hour. Led Agile teams and mentored engineers, increasing team velocity 35%.",
-    tech: [
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "Angular",
-      "Python",
-      "TensorFlow",
-      "GenAI",
-      "Docker",
-      "Kubernetes",
-      "AWS",
-      "Azure",
-    ],
+    type: "Full-time",
+    location: "Denver, Colorado, United States · Remote",
+    description: "",
+    tech: [],
   },
   {
     period: "Aug 2025 — Jul 2026",
     role: "Software Engineer",
     company: "Embraer",
+    type: "Full-time",
+    location: "São José dos Campos, São Paulo, Brasil · On-site",
     description:
-      "Engineered REST APIs for avionics data ingestion scaling to 200K events/day. Developed Angular flight analytics dashboards supporting 5,000 concurrent users. Implemented OAuth2/JWT SSO integration reducing login friction 70%. Prototyped Agentic AI maintenance assistant reducing diagnosis time 35%. Optimized MongoDB replica sets with recovery RTO under 30 minutes.",
+      "Experience in Salesforce development within the CRM Commercial area at Embraer, supporting Product, Marketing, Contracts, Opportunities, Committees, and Proposals. Proven experience in end-to-end project execution, including requirements gathering and analysis with multiple stakeholders, data analysis, and performance indicator monitoring, with strong proficiency in Excel. Hands-on experience in developing and managing Salesforce solutions, as well as in the design and development of AI agents and Machine Learning initiatives to enhance automation, decision-making, and operational efficiency, transforming engineering and business data into actionable insights through Power BI dashboards.",
     tech: [
-      "Node.js",
-      "Express",
-      "Angular",
-      "MongoDB",
-      "OAuth2",
-      "JWT",
-      "Python",
-      "NLP",
-      "Google Cloud",
-      "Azure",
+      "Salesforce",
+      "Power BI",
+      "AI Agents",
+      "Machine Learning",
+      "Excel",
+      "Data Analysis",
+      "CRM",
     ],
   },
   {
-    period: "Aug 2020 — Jul 2025",
-    role: "Software Engineer",
+    period: "Jan 2025 — Jul 2025",
+    role: "Full Stack Junior Developer",
     company: "Ambula",
+    type: "Part-time",
+    location: "Portugal · Remote",
     description:
-      "Built MEAN stack healthcare platforms supporting 100K+ EHR transactions monthly. Implemented FHIR/HL7 integrations compliant with HIPAA across 20 hospitals, reducing integration time 45%. Built microservices handling 1M+ records at 99.9% uptime. Deployed NLP models for clinical note processing extracting structured data from 500K notes/month.",
+      "Development of web and mobile applications for Ambula's partner companies, including Crew Member, Coordinator, and User roles, using FlutterFlow, Supabase, Figma, Javascript and Tailwind. Responsible for managing vehicles, crew members, trips, beneficiaries, and financial reports, optimizing operational processes and enhancing user experience. Developed skills in prototyping, software architecture, process automation, data analysis, and problem-solving.",
     tech: [
-      "Angular",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "FHIR",
-      "HL7",
-      "HIPAA",
-      "Python",
-      "TensorFlow",
-      "OAuth2",
-      "JWT",
+      "JavaScript",
+      "HTML5",
+      "FlutterFlow",
+      "Supabase",
+      "Figma",
+      "Tailwind",
+      "CSS",
+      "Mobile Development",
+      "Software Architecture",
+      "Process Automation",
+      "Data Analysis",
     ],
   },
   {
-    period: "Jul 2018 — Aug 2020",
-    role: "Junior Software Engineer",
+    period: "Jul 2024 — Dec 2024",
+    role: "Java Trainee Developer",
     company: "HumanIT Digital Consulting",
+    type: "Part-time",
+    location: "Porto, Portugal · Remote",
     description:
-      "Developed Angular/TypeScript frontend components improving page load times 30% across client portals serving 10K+ users. Built Node.js/Express REST APIs with MongoDB supporting 200K+ records. Implemented Git workflows and CI pipelines reducing release time from days to hours. Applied async programming patterns reducing batch job completion time 70%.",
+      "Development of skills in Java 21, Spring Boot 3 (including Spring Data and Spring Security), JWT, Docker, messaging with Apache Kafka and RabbitMQ, data auditing with Hibernate Envers, and database versioning with Liquibase. Exception handling, file manipulation, email sending, scheduling with Scheduler, and unit testing using JUnit. Participation in project management with the agile Scrum methodology and improvement of communication skills in English in a collaborative and challenging environment.",
     tech: [
-      "Angular",
-      "TypeScript",
-      "Node.js",
-      "Express",
-      "MongoDB",
+      "Spring Framework",
+      "Docker",
+      "Java",
+      "Spring Boot",
+      "Spring Security",
       "JWT",
+      "Apache Kafka",
+      "RabbitMQ",
+      "Hibernate Envers",
+      "Liquibase",
+      "JUnit",
+      "Scrum",
+      "REST APIs",
+      "PostgreSQL",
       "Git",
       "CI/CD",
+      "Maven",
+      "Spring Data",
+      "Microservices",
+      "Linux",
+      "IntelliJ IDEA",
+      "Postman",
     ],
+  },
+  {
+    period: "Aug 2018 — Jul 2024",
+    role: "Administrative Assistant",
+    company: "Força Aérea Brasileira - FAB",
+    type: "Full-time",
+    location: "São José dos Campos, São Paulo, Brazil · On-site",
+    description:
+      "Responsible for the administration and development of military courses, implementing the Moodle system for the operational maintenance and qualification of GSD-SJ. Optimized processes related to enrollment, tracking, evaluation, and publication, achieving an improvement of over 100%. Developed skills in problem-solving, time management, critical thinking, organizational abilities, and continuous learning.",
+    tech: [],
   },
 ];
 
 const education = [
   {
-    period: "2017 — 2020",
-    institution: "Anhembi Morumbi University",
-    degree: "Bachelor's Degree",
+    period: "Aug 2023 — Aug 2026",
+    institution: "Universidade Anhembi Morumbi",
+    degree: "Bachelor's degree",
     field: "Computer Science",
     location: "São Paulo, Brazil",
-    description:
-      "Studied computer science fundamentals: algorithms, data structures, operating systems, databases, and software engineering. Built full-stack projects with Java, Spring Boot, React, and Next.js that grew into a career in web development.",
+    description: "",
+  },
+  {
+    period: "Jan 2021 — Aug 2023",
+    institution: "Universidade Anhembi Morumbi",
+    degree: "Higher Education",
+    field: "Systems Analysis and Development",
+    location: "São Paulo, Brazil",
+    description: "",
   },
 ];
 
@@ -251,11 +241,10 @@ export default function Home() {
             I build scalable enterprise systems.
           </h2>
           <p className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Senior Software Engineer with 8+ years in MEAN stack, GenAI/Agentic AI
-            and enterprise Identity/Security, Healthcare and Data Governance
-            platforms. Expertise in Node.js, Express, MongoDB, Angular, TypeScript,
-            Python and cloud deployments. Agile practitioner and collaborative
-            leader focused on delivering secure, compliant enterprise-grade solutions.
+            Software Engineer with 2+ years of experience focused on Full Stack
+            Development and Artificial Intelligence. Based in São José dos Campos,
+            Brazil, building scalable solutions that connect technology, business
+            strategy, and user experience.
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -268,7 +257,7 @@ export default function Home() {
             </a>
             <a
               className="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors border border-border bg-background hover:bg-accent hover:text-accent-foreground h-11 px-6"
-              href="mailto:yuri.claro.dev@gmail.com"
+              href="mailto:yuri.claro@outlook.com"
             >
               <Mail className="h-4 w-4" />
               Get in touch
@@ -308,24 +297,32 @@ export default function Home() {
         <div className="grid gap-12 md:grid-cols-3">
           <div className="space-y-4 text-muted-foreground md:col-span-2">
             <p>
-              I&apos;m a senior software engineer based in{" "}
-              <strong className="text-foreground">São Paulo, Brazil</strong>.
-              With 8+ years of experience, I specialize in building enterprise-grade
-              applications using the MEAN stack, GenAI/Agentic AI, and identity/security
-              platforms. I&apos;ve delivered solutions across healthcare, avionics, and
-              data governance domains.
+              Software Engineer focused on{" "}
+              <strong className="text-foreground">Full Stack Development</strong>{" "}
+              and{" "}
+              <strong className="text-foreground">Artificial Intelligence</strong>,
+              building scalable solutions that connect technology, business
+              strategy, and user experience.
             </p>
             <p>
-              My track record includes reducing integration time by 45%, improving API
-              throughput 3x, and building secure authentication systems with OAuth2, JWT,
-              and SSO. I&apos;m proficient in cloud deployments on AWS, Azure, and Google
-              Cloud with containerization using Docker and Kubernetes.
+              Currently at{" "}
+              <strong className="text-foreground">Automate Army</strong>, I work
+              with clients across the United States and the world, developing
+              AI-powered products, intelligent automations, and software
+              solutions that drive business efficiency and growth.
             </p>
             <p>
-              I&apos;m passionate about GenAI/Agentic AI model development, NLP, and
-              data governance to deliver scalable, secure and compliant solutions. I thrive
-              as an Agile practitioner, mentoring engineers and managing cross-functional
-              stakeholder relationships.
+              My career includes experience with the{" "}
+              <strong className="text-foreground">Brazilian Air Force</strong>,{" "}
+              <strong className="text-foreground">Embraer</strong>, and
+              technology companies across Europe, providing me with a strong
+              foundation in discipline, adaptability, and delivering results in
+              international and high-performance environments.
+            </p>
+            <p>
+              Passionate about technology, data, and process optimization, I
+              thrive in dynamic environments where technological innovation is
+              closely connected to business strategy.
             </p>
 
             <p className="pt-2 text-foreground">
@@ -442,16 +439,27 @@ export default function Home() {
                 {e.role}{" "}
                 <span className="text-muted-foreground">· {e.company}</span>
               </h3>
-              <p className="mt-3 max-w-2xl text-muted-foreground leading-relaxed">
-                {e.description}
-              </p>
-              <div className="mt-4 flex flex-wrap gap-1.5">
-                {e.tech.map((t) => (
-                  <Badge key={t} variant="filled">
-                    {t}
-                  </Badge>
-                ))}
+              <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
+                <span>{e.type}</span>
+                <span className="inline-flex items-center gap-1.5">
+                  <MapPin className="h-3.5 w-3.5" />
+                  {e.location}
+                </span>
               </div>
+              {e.description && (
+                <p className="mt-3 max-w-2xl text-muted-foreground leading-relaxed">
+                  {e.description}
+                </p>
+              )}
+              {e.tech.length > 0 && (
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {e.tech.map((t) => (
+                    <Badge key={t} variant="filled">
+                      {t}
+                    </Badge>
+                  ))}
+                </div>
+              )}
             </li>
             </ScrollReveal>
           ))}
@@ -466,7 +474,7 @@ export default function Home() {
 
         <ol className="relative space-y-12 border-l border-border pl-8 md:pl-12">
           {education.map((ed) => (
-            <ScrollReveal key={ed.institution}>
+            <ScrollReveal key={`${ed.institution}-${ed.period}`}>
             <li className="relative">
               <span className="absolute -left-[calc(2rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full bg-foreground md:-left-[calc(3rem+5px)]" />
               <p className="font-mono text-xs text-muted-foreground">
@@ -476,16 +484,18 @@ export default function Home() {
               <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
                 <span className="inline-flex items-center gap-1.5">
                   <GraduationCap className="h-4 w-4" />
-                  {ed.degree} in {ed.field}
+                  {ed.degree}, {ed.field}
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <MapPin className="h-4 w-4" />
                   {ed.location}
                 </span>
               </div>
-              <p className="mt-3 max-w-2xl text-muted-foreground leading-relaxed">
-                {ed.description}
-              </p>
+              {ed.description && (
+                <p className="mt-3 max-w-2xl text-muted-foreground leading-relaxed">
+                  {ed.description}
+                </p>
+              )}
             </li>
             </ScrollReveal>
           ))}
@@ -511,11 +521,11 @@ export default function Home() {
 
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <a
-              href="mailto:yuri.claro.dev@gmail.com"
+              href="mailto:yuri.claro@outlook.com"
               className="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-6"
             >
               <Mail className="h-4 w-4" />
-              yuri.claro.dev@gmail.com
+              yuri.claro@outlook.com
             </a>
 
             <a
